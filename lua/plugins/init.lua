@@ -6,18 +6,16 @@ return {
   },
 
   -- These are some examples, uncomment them if you want to see them work!
-{
-  'nvimdev/dashboard-nvim',
-  event = 'VimEnter',
-  config = function()
-    local dash_board_settings = require('dashboard').setup {
-        theme = 'hyper',
+  {
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
+    config = function()
+      local dash_board_settings = require("dashboard").setup {
+        theme = "hyper",
       }
-    
-    
-  end,
-  dependencies = { {'nvim-tree/nvim-web-devicons'}}
-},
+    end,
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
+  },
   {
     "williamboman/mason.nvim",
 
@@ -27,12 +25,19 @@ return {
         "clang-format",
         "codelldb",
         "rust-analyzer",
-
       },
     },
   },
-
 {
+  "folke/todo-comments.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+},
+  {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
@@ -61,10 +66,10 @@ return {
 
   {
     "mfussenegger/nvim-dap",
-    config = function ()
-    require("configs.debuggers.debugger_cpp")
+    config = function()
+      require "configs.debuggers.debugger_cpp"
     end,
-      },
+  },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -72,12 +77,39 @@ return {
     end,
   }, 
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css","cpp","c","java","python","rust",
-  		},
-  	},
+    "stevearc/dressing.nvim",
+    lazy = false,
+    opts = {},
+  },
+{
+  "folke/flash.nvim",
+  event = "VeryLazy",
+
+  opts = {},
+  -- stylua: ignore
+  keys = {
+    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  },
+},
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "cpp",
+        "c",
+        "java",
+        "python",
+        "rust",
+      },
+    },
   },
 }
