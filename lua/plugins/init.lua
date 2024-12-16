@@ -78,6 +78,7 @@ return {
   }, 
   {
     "stevearc/dressing.nvim",
+
     lazy = false,
     opts = {},
   },
@@ -86,6 +87,7 @@ return {
   event = "VeryLazy",
 
   opts = {},
+
   -- stylua: ignore
   keys = {
     { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
