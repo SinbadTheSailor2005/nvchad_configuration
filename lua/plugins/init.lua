@@ -97,6 +97,8 @@ return {
     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
 },
+{ "nvzone/volt" , lazy = true },
+{ "nvzone/menu" , lazy = true },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
