@@ -24,6 +24,7 @@ return {
         "clangd",
         "clang-format",
         "codelldb",
+        "cpplint",
         "rust-analyzer",
       },
     },
@@ -99,6 +100,16 @@ return {
   },
   { "nvzone/volt", lazy = true },
   { "nvzone/menu", lazy = true },
+  {
+    "mfussenegger/nvim-lint",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    config = function()
+      require "configs.linter"
+    end,
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {

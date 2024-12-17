@@ -50,4 +50,7 @@ vim.keymap.set({'n','v'},'<leader>l',function ()
   })
 
 end)
-
+vim.keymap.set({'n','v'}, "<leader>ll",function ()
+  require("lint").try_lint()
+  
+end)
