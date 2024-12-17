@@ -1,4 +1,5 @@
 require "nvchad.mappings"
+local conform = require "conform"
 
 -- add yours here
 
@@ -41,4 +42,12 @@ vim.keymap.set("n", "<RightMouse>", function()
   local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
   require("menu").open(options, { mouse = true })
 end, {})
+vim.keymap.set({'n','v'},'<leader>l',function ()
+  conform.format({
+    lsp_fallback = true,
+    async = false,
+    timeout_ms = 500,
+  })
+
+end)
 

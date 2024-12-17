@@ -28,15 +28,15 @@ return {
       },
     },
   },
-{
-  "folke/todo-comments.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
-},
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
   {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
@@ -75,18 +75,18 @@ return {
     config = function()
       require "configs.lspconfig"
     end,
-  }, 
+  },
   {
     "stevearc/dressing.nvim",
 
     lazy = false,
     opts = {},
   },
-{
-  "folke/flash.nvim",
-  event = "VeryLazy",
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
 
-  opts = {},
+    opts = {},
 
   -- stylua: ignore
   keys = {
@@ -96,9 +96,9 @@ return {
     { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
-},
-{ "nvzone/volt" , lazy = true },
-{ "nvzone/menu" , lazy = true },
+  },
+  { "nvzone/volt", lazy = true },
+  { "nvzone/menu", lazy = true },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
