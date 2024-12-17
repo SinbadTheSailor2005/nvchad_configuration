@@ -33,6 +33,7 @@
   "telescope.nvim": { "branch": "master", "commit": "2eca9ba22002184ac05eddbe47a7fe2d5a384dfc" },
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "ui": { "branch": "v3.0", "commit": "ed09fb24023a34bcf01c021737f8475905f6cf96" },
+  "vim-fugitive": { "branch": "master", "commit": "fcb4db52e7f65b95705aa58f0f2df1312c1f2df2" },
   "volt": { "branch": "main", "commit": "0cdfa1dfbbfc8fda340054915991fda188db8d8e" },
   "which-key.nvim": { "branch": "main", "commit": "8ab96b38a2530eacba5be717f52e04601eb59326" }
 }
