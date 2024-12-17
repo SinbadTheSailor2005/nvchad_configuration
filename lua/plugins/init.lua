@@ -63,6 +63,10 @@ return {
     end,
   },
   {
+"nvim-lua/plenary.nvim",
+    lazy = false,
+  },
+  {
     "jay-babu/mason-nvim-dap.nvim",
     dependencies = {
       "williamboman/mason.nvim",
