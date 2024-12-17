@@ -29,6 +29,16 @@ return {
       },
     },
   },
+{
+  "ibhagwan/fzf-lua",
+  -- optional for icon support
+  dependencies = { "nvim-tree/nvim-web-devicons" }, -- СКАЧАЙ САМ fzf через apt...
+  config = function()
+    -- calling `setup` is optional for customization
+    require("fzf-lua").setup({})
+  end,
+  lazy = false,
+},
   {
   "tpope/vim-fugitive",
   lazy = false,
