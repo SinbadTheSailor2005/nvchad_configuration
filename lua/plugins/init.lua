@@ -26,6 +26,7 @@ return {
         "codelldb",
         "cpplint",
         "rust-analyzer",
+        "typescript-language-server",
       },
     },
   },
