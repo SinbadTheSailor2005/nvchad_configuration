@@ -28,6 +28,10 @@ return {
         "rust-analyzer",
         "typescript-language-server",
       },
+    registries = {
+      'github:nvim-java/mason-registry', --нужны для устаноки спец пакетов для Java
+      'github:mason-org/mason-registry',
+    },
     },
   },
 {
@@ -82,6 +86,8 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
+
+  
     },
   },
 
@@ -94,6 +100,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      require('java').setup() 
       require "configs.lspconfig"
     end,
   },
@@ -130,6 +137,36 @@ return {
       require "configs.linter"
     end,
   },
+{
+  "utilyre/barbecue.nvim", --вернхняя полоска как в vs code
+  name = "barbecue",
+  lazy = false,
+  version = "*",
+  dependencies = {
+    "SmiteshP/nvim-navic",
+    "nvim-tree/nvim-web-devicons", -- optional dependency
+  },
+  opts = {
+    -- configurations go here
+  },
+},
+  -- lazy.nvim
+{
+  "folke/noice.nvim", --notification IMBA!!!!
+  event = "VeryLazy",
+  opts = {
+    -- add any options here
+  },
+  dependencies = {
+    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    "MunifTanjim/nui.nvim",
+    -- OPTIONAL:
+    --   `nvim-notify` is only needed, if you want to use the notification view.
+    --   If not available, we use `mini` as the fallback
+    "rcarriga/nvim-notify",
+    }
+},
+{'nvim-java/nvim-java'}, --плагин для работы Java
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
