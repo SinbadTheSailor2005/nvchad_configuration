@@ -53,13 +53,14 @@ end)
 vim.keymap.set({'n','v'}, "<leader>ll",function ()
   require("lint").try_lint()
   
-end)
+end, {desc = "try lint"})
 vim.keymap.set('n', '<leader>co', function()
   vim.lsp.buf.code_action({
     context = { only = { 'source.organizeImports' } },
     apply = true,
-  })
-end)
+    })
+end,   {desc = "organizeImports"}
+)
 
 
 vim.keymap.set('n', '<leader>cg', function()
@@ -67,12 +68,12 @@ vim.keymap.set('n', '<leader>cg', function()
     context = { only = { 'source.generate' } },
    
   })
-end)
+end, {desc = "generate"})
 vim.keymap.set('n', '<leader>cm', function()
   vim.lsp.buf.code_action({
     context = { only = { 'source.overrideMethods' } },
    
   })
-end)
+end, {desc = "override methods"})
 
 
