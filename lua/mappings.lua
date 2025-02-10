@@ -54,3 +54,23 @@ vim.keymap.set({'n','v'}, "<leader>ll",function ()
   require("lint").try_lint()
   
 end)
+vim.keymap.set('n', '<leader>co', function()
+  vim.lsp.buf.code_action({
+    context = { only = { 'source.organizeImports' } },
+    apply = true,
+  })
+end)
+
+
+vim.keymap.set('n', '<leader>cg', function()
+  vim.lsp.buf.code_action({
+    context = { only = { 'source.generate' } },
+   
+  })
+end)
+vim.keymap.set('n', '<leader>cm', function()
+  vim.lsp.buf.code_action({
+    context = { only = { 'source.overrideMethods' } },
+   
+  })
+end)

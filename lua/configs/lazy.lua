@@ -8,6 +8,7 @@ return {
       lazy = "󰂠 ",
       loaded = "",
       not_loaded = "",
+
     },
   },
 

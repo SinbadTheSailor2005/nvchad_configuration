@@ -82,7 +82,7 @@ return {
   end,
   lazy = false,
 },
-  {
+    {
   "tpope/vim-fugitive",
   lazy = false,
   },
@@ -137,9 +137,11 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     config = function()
-      require('java').setup() 
+      require('java').setup()
       require "configs.lspconfig"
+
     end,
   },
   {

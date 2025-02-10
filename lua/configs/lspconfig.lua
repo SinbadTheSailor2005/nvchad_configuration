@@ -8,7 +8,11 @@ local lspconfig = require "lspconfig"
 -- EXAMPLE
 local servers = { "html", "cssls" , "rust_analyzer", "clangd", "pyright","ts_ls", "lemminx", "bashls"}
 local nvlsp = require "nvchad.configs.lspconfig"
-
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -32,6 +36,7 @@ require('lspconfig').jdtls.setup({ --настройка lsp server для Java
     }
   }
 })
+
 -- configuring single server, example: typescript
 -- lspconfig.python_lsp_server.setup {
 --   on_attach = nvlsp.on_attach,
