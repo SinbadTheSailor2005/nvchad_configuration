@@ -8,6 +8,17 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "ww", "<ESC>")
 map("i", "jj", "<ESC>")
+vim.keymap.set("n", "<Leader>gi", function ()
+  vim.lsp.buf.implementation()
+end, {desc = "go to implementation"})
+
+vim.keymap.set("n", "<Leader>gD", function ()
+  vim.lsp.buf.declaration()
+end, {desc = "go to Declaration"})
+vim.keymap.set("n", "<Leader>gd", function ()
+  vim.lsp.buf.definition()
+end, {desc = "go to definition"})
+
 vim.keymap.set("n", "<F5>", function()
   require("dap").continue()
 end)
