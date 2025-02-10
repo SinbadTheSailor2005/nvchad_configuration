@@ -7,6 +7,7 @@ require('livepreview.config').set({
 	picker = "telescope",
     })
 
+
 -- add yours here!
 
 -- local o = vim.o

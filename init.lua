@@ -36,4 +36,25 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+local isLspDiagnosticsVisible = true
+vim.keymap.set("n", "<leader>lx", function()
+    isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+    vim.diagnostic.config({
+        virtual_text = isLspDiagnosticsVisible,
+        underline = isLspDiagnosticsVisible
+    }) end)
 
+-- Убирает баг с коронами. Вместо них ставит квадраты. Изначально выключены
+isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+    vim.diagnostic.config({
+        virtual_text = isLspDiagnosticsVisible,
+        underline = isLspDiagnosticsVisible
+    }) 
+
+
+
+
+--
+-- check it
+-- https://www.reddit.com/r/neovim/comments/16ji91p/how_to_change_the_diagnostics_icons/
+-- https://samuellawrentz.com/hacks/neovim/disable-annoying-eslint-lsp-server-and-hide-virtual-text/#:~:text=With%20the%20straightforward%20command%20%3Cleader,annoyance%20of%20continuously%20highlighted%20errors.
