@@ -6,7 +6,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls" , "rust_analyzer", "clangd", "pyright","ts_ls", "lemminx", "bashls"}
+local servers = { "sqls","html", "cssls" , "rust_analyzer", "clangd", "pyright","ts_ls", "lemminx", "bashls"}
 local nvlsp = require "nvchad.configs.lspconfig"
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
