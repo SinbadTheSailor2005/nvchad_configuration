@@ -36,6 +36,12 @@ require('lspconfig').jdtls.setup({ --настройка lsp server для Java
     }
   }
 })
+lspconfig.html.setup({
+  filetypes = { "html", "htm", "jsp" }, -- Добавляем "jsp"
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+})
 
 -- configuring single server, example: typescript
 -- lspconfig.python_lsp_server.setup {

@@ -221,7 +221,14 @@ return {
         "java",
         "python",
         "rust",
+        
       },
+vim.filetype.add({
+  extension = {
+    jsp = "html"
+  }
+})
     },
+  
   },
 }
