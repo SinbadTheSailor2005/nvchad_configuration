@@ -221,6 +221,7 @@ return {
         "java",
         "python",
         "rust",
+        "xml",
         
       },
 vim.filetype.add({
