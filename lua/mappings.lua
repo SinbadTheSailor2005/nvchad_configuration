@@ -87,4 +87,11 @@ vim.keymap.set('n', '<leader>cm', function()
   })
 end, {desc = "override methods"})
 
+vim.keymap.set('n', '<leader>cl', function()
+  vim.lsp.buf.code_action({
+    context = { only = { 'source.generate.accessors' } },
+   
+  })
+end, {desc = "accessors"})
+
 
