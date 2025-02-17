@@ -1,12 +1,11 @@
 -- load defaults i.e lua_lsp
 
-
 require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "sqls","html", "cssls" , "rust_analyzer", "clangd", "pyright","ts_ls", "lemminx", "bashls"}
+local servers = { "sqls", "html", "cssls", "rust_analyzer", "clangd", "pyright", "ts_ls", "lemminx", "bashls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -21,7 +20,7 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
-require('lspconfig').jdtls.setup({ --настройка lsp server для Java
+require("lspconfig").jdtls.setup { --настройка lsp server для Java
   settings = {
     java = {
       configuration = {
@@ -30,18 +29,18 @@ require('lspconfig').jdtls.setup({ --настройка lsp server для Java
             name = "JavaSE-23",
             path = "/opt/jdk-23",
             default = true,
-          }
-        }
-      }
-    }
-  }
-})
-lspconfig.html.setup({
+          },
+        },
+      },
+    },
+  },
+}
+lspconfig.html.setup {
   filetypes = { "html", "htm", "jsp" }, -- Добавляем "jsp"
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
-})
+}
 
 -- configuring single server, example: typescript
 -- lspconfig.python_lsp_server.setup {
