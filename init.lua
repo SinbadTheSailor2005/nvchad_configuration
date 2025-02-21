@@ -29,30 +29,27 @@ require("lazy").setup({
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
-
 require "options"
 require "nvchad.autocmds"
--- require("menu").open(options, opts) 
+-- require("menu").open(options, opts)
 vim.schedule(function()
   require "mappings"
 end)
 local isLspDiagnosticsVisible = true
 vim.keymap.set("n", "<leader>lx", function()
-    isLspDiagnosticsVisible = not isLspDiagnosticsVisible
-    vim.diagnostic.config({
-        virtual_text = isLspDiagnosticsVisible,
-        underline = isLspDiagnosticsVisible
-    }) end)
+  isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+  vim.diagnostic.config {
+    virtual_text = isLspDiagnosticsVisible,
+    underline = isLspDiagnosticsVisible,
+  }
+end)
 
 -- Убирает баг с коронами. Вместо них ставит квадраты. Изначально выключены
 isLspDiagnosticsVisible = not isLspDiagnosticsVisible
-    vim.diagnostic.config({
-        virtual_text = isLspDiagnosticsVisible,
-        underline = isLspDiagnosticsVisible
-    }) 
-
-
-
+vim.diagnostic.config {
+  virtual_text = isLspDiagnosticsVisible,
+  underline = isLspDiagnosticsVisible,
+}
 
 --
 -- check it
