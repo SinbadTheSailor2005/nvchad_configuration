@@ -9,10 +9,9 @@ local options = {
     cpp = { "clang_format" },
     c = { "clang_format" },
     java = { "google-java-format" },
-    xml = {"xmlformatter"},
-    jsp = {"prettier"},
+    xml = { "xmlformatter" },
+    jsp = { "prettier" },
   },
-
 
   format_on_save = {
     -- These options will be passed to conform.format()

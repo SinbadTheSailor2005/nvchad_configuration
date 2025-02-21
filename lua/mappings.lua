@@ -2,22 +2,27 @@ require "nvchad.mappings"
 local conform = require "conform"
 
 -- add yours here
-
+-- чтоб dev tools Spring работал
 local map = vim.keymap.set
-
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.java",
+  callback = function()
+    vim.cmd "JavaBuildBuildWorkSpace"
+  end,
+})
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "ww", "<ESC>")
 map("i", "jj", "<ESC>")
-vim.keymap.set("n", "<Leader>gi", function ()
+vim.keymap.set("n", "<Leader>gi", function()
   vim.lsp.buf.implementation()
-end, {desc = "go to implementation"})
+end, { desc = "go to implementation" })
 
-vim.keymap.set("n", "<Leader>gD", function ()
+vim.keymap.set("n", "<Leader>gD", function()
   vim.lsp.buf.declaration()
-end, {desc = "go to Declaration"})
-vim.keymap.set("n", "<Leader>gd", function ()
+end, { desc = "go to Declaration" })
+vim.keymap.set("n", "<Leader>gd", function()
   vim.lsp.buf.definition()
-end, {desc = "go to definition"})
+end, { desc = "go to definition" })
 
 vim.keymap.set("n", "<F5>", function()
   require("dap").continue()
@@ -53,45 +58,36 @@ vim.keymap.set("n", "<RightMouse>", function()
   local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
   require("menu").open(options, { mouse = true })
 end, {})
-vim.keymap.set({'n','v'},'<leader>l',function ()
-  conform.format({
+vim.keymap.set({ "n", "v" }, "<leader>l", function()
+  conform.format {
     lsp_fallback = true,
     async = false,
     timeout_ms = 500,
-  })
-
+  }
 end)
-vim.keymap.set({'n','v'}, "<leader>ll",function ()
+vim.keymap.set({ "n", "v" }, "<leader>ll", function()
   require("lint").try_lint()
-  
-end, {desc = "try lint"})
-vim.keymap.set('n', '<leader>co', function()
-  vim.lsp.buf.code_action({
-    context = { only = { 'source.organizeImports' } },
+end, { desc = "try lint" })
+vim.keymap.set("n", "<leader>co", function()
+  vim.lsp.buf.code_action {
+    context = { only = { "source.organizeImports" } },
     apply = true,
-    })
-end,   {desc = "organizeImports"}
-)
+  }
+end, { desc = "organizeImports" })
 
+vim.keymap.set("n", "<leader>cg", function()
+  vim.lsp.buf.code_action {
+    context = { only = { "source.generate" } },
+  }
+end, { desc = "generate" })
+vim.keymap.set("n", "<leader>cm", function()
+  vim.lsp.buf.code_action {
+    context = { only = { "source.overrideMethods" } },
+  }
+end, { desc = "override methods" })
 
-vim.keymap.set('n', '<leader>cg', function()
-  vim.lsp.buf.code_action({
-    context = { only = { 'source.generate' } },
-   
-  })
-end, {desc = "generate"})
-vim.keymap.set('n', '<leader>cm', function()
-  vim.lsp.buf.code_action({
-    context = { only = { 'source.overrideMethods' } },
-   
-  })
-end, {desc = "override methods"})
-
-vim.keymap.set('n', '<leader>cl', function()
-  vim.lsp.buf.code_action({
-    context = { only = { 'source.generate.accessors' } },
-   
-  })
-end, {desc = "accessors"})
-
-
+vim.keymap.set("n", "<leader>cl", function()
+  vim.lsp.buf.code_action {
+    context = { only = { "source.generate.accessors" } },
+  }
+end, { desc = "accessors" })
