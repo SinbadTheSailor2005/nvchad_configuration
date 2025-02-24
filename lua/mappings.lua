@@ -4,12 +4,16 @@ local conform = require "conform"
 -- add yours here
 -- чтоб dev tools Spring работал
 local map = vim.keymap.set
+
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "*.java",
+  pattern = {"*.java", "*.jsp"},
   callback = function()
-    vim.cmd "JavaBuildBuildWorkSpace"
+    vim.cmd ("JavaBuildBuildWorkSpace")
   end,
 })
+
+
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "ww", "<ESC>")
 map("i", "jj", "<ESC>")

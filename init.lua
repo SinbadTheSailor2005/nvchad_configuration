@@ -50,6 +50,11 @@ vim.diagnostic.config {
   virtual_text = isLspDiagnosticsVisible,
   underline = isLspDiagnosticsVisible,
 }
+isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+vim.diagnostic.config {
+  virtual_text = isLspDiagnosticsVisible,
+  underline = isLspDiagnosticsVisible,
+}
 
 --
 -- check it
