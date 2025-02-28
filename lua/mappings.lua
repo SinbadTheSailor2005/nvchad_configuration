@@ -12,8 +12,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
-
-
+require "configs.smooth_scrolling"
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "ww", "<ESC>")
 map("i", "jj", "<ESC>")

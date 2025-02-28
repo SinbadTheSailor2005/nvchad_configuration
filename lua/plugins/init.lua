@@ -1,3 +1,4 @@
+local lazy = require "lazy"
 return {
   {
     "stevearc/conform.nvim",
@@ -18,7 +19,7 @@ return {
    {
   "karb94/neoscroll.nvim",
   opts = {},
-    lazy=false;
+    lazy=false,
 },
   {
     "williamboman/mason.nvim",
