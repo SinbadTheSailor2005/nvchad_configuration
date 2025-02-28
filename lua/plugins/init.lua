@@ -15,6 +15,11 @@ return {
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
+   {
+  "karb94/neoscroll.nvim",
+  opts = {},
+    lazy=false;
+},
   {
     "williamboman/mason.nvim",
 
