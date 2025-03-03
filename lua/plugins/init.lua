@@ -16,11 +16,14 @@ return {
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
-   {
-  "karb94/neoscroll.nvim",
-  opts = {},
-    lazy=false,
-},
+  {
+    "karb94/neoscroll.nvim",
+    opts = {},
+    lazy = false,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+  },
   {
     "williamboman/mason.nvim",
 
@@ -111,6 +114,7 @@ return {
       dapui.setup()
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
+        require 'configs.virtual_text_debugger'
       end
       dap.listeners.before.event_terminated["dapui_config"] = function()
         dapui.close()
