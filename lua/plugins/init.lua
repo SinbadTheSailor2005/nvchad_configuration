@@ -29,6 +29,7 @@ return {
 
     opts = {
       ensure_installed = {
+        "black",
         "clangd",
         "clang-format",
         "codelldb",
