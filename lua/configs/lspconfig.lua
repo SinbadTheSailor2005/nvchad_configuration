@@ -5,7 +5,19 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "docker_compose_language_service","html", "cssls", "rust_analyzer", "clangd", "pyright", "ts_ls", "lemminx", "bashls", "dockerls"}
+local servers = {
+  "postgres_lsp",
+  "docker_compose_language_service",
+  "html",
+  "cssls",
+  "rust_analyzer",
+  "clangd",
+  "pyright",
+  "ts_ls",
+  "lemminx",
+  "bashls",
+  "dockerls",
+}
 local nvlsp = require "nvchad.configs.lspconfig"
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -48,10 +60,9 @@ lspconfig.html.setup {
 --   on_init = nvlsp.on_init,
 --   capabilities = nvlsp.capabilities,
 -- }
-require'lspconfig'.docker_compose_language_service.setup{
-  filetypes = {"yaml"},
+require("lspconfig").docker_compose_language_service.setup {
+  filetypes = { "yaml" },
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
 }
-

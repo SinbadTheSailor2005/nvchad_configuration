@@ -6,9 +6,9 @@ local conform = require "conform"
 local map = vim.keymap.set
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = {"*.java", "*.jsp"},
+  pattern = { "*.java", "*.jsp" },
   callback = function()
-    vim.cmd ("JavaBuildBuildWorkSpace")
+    vim.cmd "JavaBuildBuildWorkSpace"
   end,
 })
 
@@ -94,3 +94,5 @@ vim.keymap.set("n", "<leader>cl", function()
     context = { only = { "source.generate.accessors" } },
   }
 end, { desc = "accessors" })
+
+vim.api.nvim_set_keymap("n", "<leader>k", ":setlocal spell spelllang=en_us<CR>", { noremap = true, silent = true })
