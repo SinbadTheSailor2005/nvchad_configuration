@@ -17,6 +17,7 @@ local servers = {
   "lemminx",
   "bashls",
   "dockerls",
+  "cmake"
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
