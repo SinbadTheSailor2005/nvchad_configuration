@@ -8,14 +8,14 @@ require("livepreview.config").set {
   picker = "telescope",
 }
 
-local notify = require "notify"
-notify.setup {
-  timeout = 100,
-  render = "minimal",
-  stages = "fade_in_slide_out",
-  on_open = function(win)
-    vim.api.nvim_win_set_config(win, { focusable = false })
-  end,
-}
+-- local notify = require "notify"
+-- notify.setup {
+--   timeout = 100,
+--   render = "minimal",
+--   stages = "fade_in_slide_out",
+--   on_open = function(win)
+--     vim.api.nvim_win_set_config(win, { focusable = false })
+--   end,
+-- }
 
 -- add yours here!
