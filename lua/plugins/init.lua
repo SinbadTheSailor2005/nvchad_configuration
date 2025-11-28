@@ -25,6 +25,10 @@ return {
     "theHamsta/nvim-dap-virtual-text",
   },
   {
+    "github/copilot.vim",
+    lazy = false
+  },
+  {
     "williamboman/mason.nvim",
 
     opts = {
