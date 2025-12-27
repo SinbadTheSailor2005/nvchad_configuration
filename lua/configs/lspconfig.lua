@@ -20,7 +20,8 @@ local servers = {
   "cmake",
   "hls",
   "racket_langserver",
-  "gls"
+  "gls",
+  "yamlls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -71,10 +72,9 @@ require("lspconfig").docker_compose_language_service.setup {
   capabilities = nvlsp.capabilities,
 }
 
-require('lspconfig').hls.setup{
-  cmd = { "haskell-language-server-wrapper", "--lsp" }
+require("lspconfig").hls.setup {
+  cmd = { "haskell-language-server-wrapper", "--lsp" },
 }
-require('lspconfig').racket_langserver.setup{
- cmd = { "racket", "-l", "racket-langserver" }
+require("lspconfig").racket_langserver.setup {
+  cmd = { "racket", "-l", "racket-langserver" },
 }
-
