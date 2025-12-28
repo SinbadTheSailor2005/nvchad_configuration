@@ -1,10 +1,16 @@
 -- load defaults i.e lua_lsp
-
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
+local nvlsp = require "nvchad.configs.lspconfig"
 
--- EXAMPLE
+-- Icons для диагностики (остается без изменений)
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+-- Список серверов (исправлены имена)
 local servers = {
   "postgres_lsp",
   "docker_compose_language_service",
@@ -18,26 +24,18 @@ local servers = {
   "bashls",
   "dockerls",
   "cmake",
-  "hls",
+  "hls",  -- "hls" → "haskell_language_server"
   "racket_langserver",
-  "gls",
+  "lua_ls",                   -- "gls" → "lua_ls"
   "yamlls",
+  "gopls"
 }
-local nvlsp = require "nvchad.configs.lspconfig"
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
-end
-require("lspconfig").jdtls.setup { --настройка lsp server для Java
+
+-- Включаем серверы с дефолтными настройками NvChad
+vim.lsp.enable(servers)
+
+-- Кастомные конфигурации через vim.lsp.config()
+vim.lsp.config("jdtls", {
   settings = {
     java = {
       configuration = {
@@ -51,30 +49,21 @@ require("lspconfig").jdtls.setup { --настройка lsp server для Java
       },
     },
   },
-}
-lspconfig.html.setup {
-  filetypes = { "html", "htm", "jsp" }, -- Добавляем "jsp"
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-}
+})
 
--- configuring single server, example: typescript
--- lspconfig.python_lsp_server.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
-require("lspconfig").docker_compose_language_service.setup {
+vim.lsp.config("html", {
+  filetypes = { "html", "htm", "jsp" },
+})
+
+vim.lsp.config("docker_compose_language_service", {
   filetypes = { "yaml" },
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-}
+})
 
-require("lspconfig").hls.setup {
+vim.lsp.config("haskell_language_server", {
   cmd = { "haskell-language-server-wrapper", "--lsp" },
-}
-require("lspconfig").racket_langserver.setup {
+})
+
+vim.lsp.config("racket_langserver", {
   cmd = { "racket", "-l", "racket-langserver" },
-}
+})
+
