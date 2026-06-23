@@ -62,7 +62,9 @@ vim.diagnostic.config {
   virtual_text = isLspDiagnosticsVisible,
   underline = isLspDiagnosticsVisible,
 }
-
+vim.deprecate = function ()
+  
+end
 --
 -- check it
 -- https://www.reddit.com/r/neovim/comments/16ji91p/how_to_change_the_diagnostics_icons/
