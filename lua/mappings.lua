@@ -16,6 +16,11 @@ require "configs.smooth_scrolling"
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "ww", "<ESC>")
 map("i", "jj", "<ESC>")
+-- Вставка из системного буфера в insert mode по Ctrl+V
+map("i", "<C-v>", '<Esc>"+gP', { desc = "Paste from system clipboard" })
+
+-- В visual mode: при вставке не сохранять заменённый текст в регистр
+map("v", "p", '"_dP', { desc = "Paste without yanking" })
 vim.keymap.set("n", "<Leader>gi", function()
   vim.lsp.buf.implementation()
 end, { desc = "go to implementation" })
